@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Design Bug Persona</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=VT323&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              mono: ['"Space Mono"', 'monospace'],
+              pixel: ['"VT323"', 'monospace'],
+            },
+            colors: {
+              bug: {
+                bg: '#0f0e17',
+                card: '#fffffe',
+                primary: '#ff8906',
+                secondary: '#f25f4c',
+                tertiary: '#e53170',
+                text: '#a7a9be',
+                highlight: '#ff8906',
+              }
+            },
+            animation: {
+              'pulse-fast': 'pulse 1s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'fade-in': 'fadeIn 0.5s ease-out forwards',
+              'fade-in-up': 'fadeInUp 0.6s ease-out forwards',
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              fadeInUp: {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              }
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+      body {
+        background-color: #0f0e17;
+        color: #fffffe;
+        font-family: 'Space Mono', monospace;
+      }
+      .retro-shadow {
+        box-shadow: 8px 8px 0px 0px #e53170;
+      }
+      .scanline {
+        width: 100%;
+        height: 100px;
+        z-index: 10;
+        background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(255, 137, 6, 0.1) 50%, rgba(0,0,0,0) 100%);
+        opacity: 0.1;
+        position: absolute;
+        bottom: 100%;
+        animation: scanline 10s linear infinite;
+        pointer-events: none;
+      }
+      @keyframes scanline {
+        0% { bottom: 100%; }
+        80% { bottom: -100%; }
+        100% { bottom: -100%; }
+      }
+
+      /* Advanced Glitch Effect */
+      .glitch-effect {
+        position: relative;
+        animation: complex-glitch 4s infinite;
+      }
+
+      /* Creates the chromatic aberration effect */
+      @keyframes complex-glitch {
+        0% {
+          text-shadow: none;
+          transform: translate(0);
+        }
+        80% {
+          text-shadow: none;
+          transform: translate(0);
+        }
+        81% {
+          text-shadow: 2px -2px 0 #ff8906, -2px 2px 0 #00ffff;
+          transform: translate(-2px, 0);
+        }
+        82% {
+          text-shadow: -2px 2px 0 #e53170, 2px -2px 0 #ff8906;
+          transform: translate(2px, 0);
+        }
+        83% {
+          text-shadow: none;
+          transform: translate(0);
+        }
+        88% {
+          text-shadow: none;
+          transform: translate(0);
+        }
+        89% {
+          text-shadow: 2px 0 0 #00ffff, -2px 0 0 #e53170;
+          transform: skew(10deg);
+        }
+        90% {
+          text-shadow: none;
+          transform: skew(0);
+        }
+        100% {
+          text-shadow: none;
+          transform: translate(0);
+        }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "html2canvas": "https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.esm.js"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
